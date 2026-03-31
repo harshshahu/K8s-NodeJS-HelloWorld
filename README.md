@@ -16,12 +16,14 @@ Cluster	A group of nodes managed by Kubernetes
 minikube status
 # OR
 minikube start --driver=docker
+
 🔧 Enable Addons & Dashboard
 minikube addons enable metrics-server
 minikube dashboard
 🔍 Verify Node
 kubectl get nodes
-💻 3️⃣ Create & Test Node.js Application
+
+3️⃣ Create & Test Node.js Application
 Check Installed Versions
 node -v
 npm -v
@@ -38,7 +40,8 @@ pwd
 node server.js
 Visit 👉 http://localhost:3000
 
-📁 4️⃣ Project Structure
+
+4️⃣ Project Structure
 k8s-nodejs-hello-world/
 ├── app/
 │   ├── Dockerfile
@@ -49,7 +52,8 @@ k8s-nodejs-hello-world/
 ├── .dockerignore
 ├── .gitignore
 └── README.md
-🧱 5️⃣ Application Files
+
+5️⃣ Application Files
 📄 app/server.js
 const http = require('http');
 const port = process.env.PORT || 3000;
@@ -74,7 +78,9 @@ CMD ["node", "server.js"]
 📄 .dockerignore
 node_modules
 npm-debug.log
-🐳 6️⃣ Build & Push Docker Image
+
+
+6️⃣ Build & Push Docker Image
 Build Image
 sudo docker build -t docker.io/atuljkamble/nodehelloworld .
 Verify Image
@@ -88,7 +94,9 @@ sudo docker container ls
 sudo docker container stop <container-id>
 # Example:
 sudo docker container stop fe8dcffe1ee1
-☸️ 7️⃣ Create Kubernetes Manifests
+
+
+7️⃣ Create Kubernetes Manifests
 📄 k8s/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -122,7 +130,9 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-🚀 8️⃣ Deploy to Kubernetes (Minikube)
+
+
+8️⃣ Deploy to Kubernetes (Minikube)
 🧠 Note:
 
 In AWS EKS → use LoadBalancer
@@ -135,7 +145,9 @@ Verify Deployment
 kubectl get deployments
 kubectl get pods
 kubectl get services
-🌐 9️⃣ Access the Application
+
+
+9️⃣ Access the Application
 Start Minikube Tunnel
 minikube tunnel   # keep running
 Open Service in Browser
@@ -143,7 +155,8 @@ kubectl get services
 minikube service hello-node-service
 This opens the app in a browser 🎉
 
-🧹 🔟 Stop & Clean Up
+
+🔟 Stop & Clean Up
 minikube stop
 minikube delete
 🧾 Summary Table
@@ -155,7 +168,9 @@ Step	Command	Purpose
 5	kubectl apply -f deployment.yaml	Deploy application
 6	minikube service hello-node-service	Access application
 7	minikube delete	Cleanup environment
-🧾 11️⃣ README Summary (for GitHub)
+
+
+1️⃣1 README Summary (for GitHub)
 # k8s-nodejs-hello-world
 
 A basic Node.js web app deployed using Docker and Kubernetes (Minikube or EKS).
