@@ -1,0 +1,61 @@
+app >> container >> pod >> node >> cluster
+
+pod - single deployment unit of k8s 
+
+
+minikube status 
+OR
+minikube start driver=docker
+
+minikube addons enable metrics-server
+minikube dashboard
+
+kubectl get nodes
+
+
+node -v
+npm -v
+git --version
+git clone https://github.com/atulkamble/k8s-nodejs-hello-world.git
+cd k8s-nodejs-hello-world
+
+// open vs code // open folder 
+// open terminal
+
+cd app
+pwd
+node server.js
+// localhost:3000
+
+sudo docker build -t docker.io/atuljkamble/nodehelloworld .
+sudo docker images
+
+sudo docker push docker.io/atuljkamble/nodehelloworld
+
+sudo docker run -d -p 3000:3000 docker.io/atuljkamble/nodehelloworld
+
+sudo docker container ls
+sudo docker container ls
+sudo docker container stop container-id
+sudo docker container stop fe8dcffe1ee1
+
+
+EKS - LoadBalancer 
+Minikube - Nodeport (Minikube Tunnel)
+
+cd k8s
+kubectl apply -f deployment.yaml
+kubectl apply -f minikube-service.yaml
+
+kubectl get deployments
+kubectl get services
+kubectl get pods
+
+minikube tunnel //keep it running 
+
+// in another tab
+kubectl get services
+minikube service hello-node-service
+
+minikube stop
+minikube delete
